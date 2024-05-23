@@ -1,17 +1,17 @@
 # Work Log
 
-## GROUP MEMBER 1
+## Chris Lam
 
-### date x
+### 5/22/2024
 
-info
+Created skeleton code for each method
 
-### date y
+### 5/23/2024
 
-info
+Finished most of the basic physics for the Fruit class, debating whether to change project to vegetables to fit our team name, attempting to make bomb
 
 
-## GROUP MEMBER 2
+## Jayden Zhen
 
 ### date x
 
