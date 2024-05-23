@@ -1,7 +1,10 @@
 public class Fruit{
 private PVector position, velocity, acceleration;
 private float mass, radius;
+//public int whatFruit = (int)(Math.random() * 11);
+public int whatFruit = 0;
 private boolean explode;
+private boolean isSlashed = false;
 
 public Fruit(float x, float y, float xspeed, float yspeed, float radius_, float mass_){
   position = new PVector(x, y);
@@ -31,9 +34,17 @@ public PVector attractTo(Fruit other){
 }
 
 public void display(){
-  
+ if(!isSlashed){
+   if(whatFruit == 0){
+     fill(0);
+     noStroke();
+     circle(position.x, position.y, (float)radius * 2);
+   }
+ }
 }
 
 public void slashed(){
+  if(isSlashed){
+  }
 }
 }
