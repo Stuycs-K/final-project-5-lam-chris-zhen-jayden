@@ -6,12 +6,16 @@ public int whatFruit = 0;
 private boolean explode;
 private boolean isSlashed = false;
 
+
 public Fruit(float x, float y, float xspeed, float yspeed, float radius_, float mass_){
   position = new PVector(x, y);
   velocity = new PVector(xspeed, yspeed);
   acceleration = new PVector(0, 0);
   mass = mass_;
   radius = radius_;
+}
+public boolean isDead(){
+  return (velocity.y > 0 && position.y > 900);
 }
 
 public void applyForce(PVector f){
@@ -40,6 +44,7 @@ public void display(){
      noStroke();
      circle(position.x, position.y, (float)radius * 2);
    }
+   
  }
 }
 
