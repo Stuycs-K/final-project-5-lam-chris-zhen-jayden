@@ -16,6 +16,7 @@ Finished most of the basic physics for the Fruit class, debating whether to chan
 ### 5/23/24
 
 Working on setting up fruit launching in the Game class
+The life system seems to be working
 
 ### date y
 
