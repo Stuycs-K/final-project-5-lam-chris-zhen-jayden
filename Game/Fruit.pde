@@ -44,6 +44,7 @@ public void display(){
      noStroke();
      circle(position.x, position.y, (float)radius * 2);
    }
+   //if slashed make two fruits; 
    
  }
 }
