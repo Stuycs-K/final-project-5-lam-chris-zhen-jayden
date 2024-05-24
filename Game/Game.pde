@@ -26,6 +26,11 @@ void draw(){
     f.move();
     f.display();
     f.applyForce(f.attractTo(Floor));
+    f.slashed(); 
+    if(f.isSlashed()){
+      Fruits.remove(f);
+       //if slashed make two fruits; 
+    }
     if (f.isDead()){
       Fruits.remove(f);
       lives--;
@@ -59,4 +64,6 @@ void draw(){
 }
 
 void mouseMoved(){
+  
+  
 }

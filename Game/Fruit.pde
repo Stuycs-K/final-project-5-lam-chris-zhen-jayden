@@ -14,8 +14,12 @@ public Fruit(float x, float y, float xspeed, float yspeed, float radius_, float 
   mass = mass_;
   radius = radius_;
 }
+
 public boolean isDead(){
   return (velocity.y > 0 && position.y > 900);
+}
+public boolean isSlashed(){
+  return (isSlashed);
 }
 
 public void applyForce(PVector f){
@@ -44,13 +48,17 @@ public void display(){
      noStroke();
      circle(position.x, position.y, (float)radius * 2);
    }
-   //if slashed make two fruits; 
+  
    
  }
 }
 
 public void slashed(){
-  if(isSlashed){
+  
+  if (pmouseX == position.x){
+    isSlashed = true; 
   }
+ // if(isSlashed){
+  //}
 }
 }
