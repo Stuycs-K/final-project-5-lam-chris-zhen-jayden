@@ -13,9 +13,9 @@ Finished most of the basic physics for the Fruit class, debating whether to chan
 
 ## Jayden Zhen
 
-### date x
+### 5/23/24
 
-info
+Working on setting up fruit launching in the Game class
 
 ### date y
 
