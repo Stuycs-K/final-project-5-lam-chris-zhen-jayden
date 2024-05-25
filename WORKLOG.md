@@ -18,6 +18,6 @@ Finished most of the basic physics for the Fruit class, debating whether to chan
 Working on setting up fruit launching in the Game class
 The life system seems to be working
 
-### date y
+### 5/24/24
 
-info
+worked on launch timing and started slashing
