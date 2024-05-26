@@ -1,5 +1,5 @@
- int score; 
- int lives;
+int score; 
+int lives;
 String gameMode;
 int time;
 int gravitationalConstant = 20; 
@@ -44,7 +44,7 @@ void draw(){
   text(time, 10, 10);
   
     if (Fruits.size() == 0 && time % 20 == 0){
-    Fruits.add(new Fruit(600, 1000, 0.0, -25, 6.0, 50.0));
+    Fruits.add(new Fruit(600, 1000, 0.0, -25, 6, 50.0));
     //will need to randomize the speed within certain limits and location of launch;
     }
   }
@@ -64,6 +64,4 @@ void draw(){
 }
 
 void mouseMoved(){
-  
-  
 }

@@ -55,8 +55,9 @@ public void display(){
 
 public void slashed(){
   
-  if (pmouseX == position.x){
+  if (pmouseX > position.x - radius && pmouseX < position.x + radius && pmouseY > position.y - radius && pmouseY < position.y + radius){
     isSlashed = true; 
+    System.out.println(position.x + "," + pmouseX + "," + radius);
   }
  // if(isSlashed){
   //}
