@@ -21,3 +21,7 @@ The life system seems to be working
 ### 5/24/24
 
 worked on launch timing and started slashing
+
+##5/25/24
+
+Finished slash registration for fruits -- stil need to made them split into two and stuff like that
