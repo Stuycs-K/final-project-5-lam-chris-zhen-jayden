@@ -22,6 +22,8 @@ The life system seems to be working
 
 worked on launch timing and started slashing
 
+## Chris Lam
+
 ##5/25/24
 
 Finished slash registration for fruits -- stil need to made them split into two and stuff like that
