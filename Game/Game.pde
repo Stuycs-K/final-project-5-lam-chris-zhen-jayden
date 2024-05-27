@@ -6,6 +6,9 @@ int gravitationalConstant = 20;
 ArrayList<Fruit>Fruits;
 int countdown;
 Fruit Floor; 
+int w = 1200;
+int h = 900;
+int difficulty = 3; 
 
 void setup(){
   size(1200, 900); 
@@ -48,11 +51,17 @@ void draw(){
   
   
   //Launchign fruit and time;
+  //randomize timing to x amount after all fruits are cut
   if (lives > 0){
   text(time, 10, 10);
-  
-    if (Fruits.size() == 0 && time % 15 == 0){
-    Fruits.add(new Fruit(600, 1000, 0.0, -25, 50, 50.0));
+  int spawntime = (int)(Math.random()*30 + 10);
+    if (Fruits.size() == 0 && time % spawntime == 0){
+    
+    for (int i = 0; i < difficulty; i++){
+      int spawnwidth = (int)((Math.random() * (w - 200)) + 100);
+      int speedup = (int)((Math.random() * -5) - 25);
+    Fruits.add(new Fruit(spawnwidth, 1000, 0.0, speedup, 50, 50.0));
+    }
     //will need to randomize the speed within certain limits and location of launch;
     }
   }
