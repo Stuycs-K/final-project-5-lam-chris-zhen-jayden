@@ -31,7 +31,7 @@ void draw(){
     f.applyForce(f.attractTo(Floor));
     f.slashed(); 
     if(f.isSlashed){
-      
+      // Make something for bomb explosion 
       Fruits.remove(f);
       Fruits.add(new Fruit(f.position.x, f.position.y, 5, 0, 50, 50.0, f.whatFruit));
       Fruits.add(new Fruit(f.position.x,f.position.y, -5, 0, 50, 50.0, f.whatFruit));
@@ -42,7 +42,7 @@ void draw(){
     if (f.isDead()){
       
       Fruits.remove(f);
-      if (!f.cut){
+      if (!f.cut && f.whatFruit != 0){
         lives--;
        }
     }
@@ -60,7 +60,7 @@ void draw(){
     for (int i = 0; i < difficulty; i++){
       int spawnwidth = (int)((Math.random() * (w - 200)) + 100);
       int speedup = (int)((Math.random() * -5) - 25);
-    Fruits.add(new Fruit(spawnwidth, 1000, 0.0, speedup, 50, 50.0));
+    Fruits.add(new Fruit(spawnwidth, 1000, (int)(Math.random() * 2) - (int)(Math.random() * 2), speedup, 50, 50.0));
     }
     //will need to randomize the speed within certain limits and location of launch;
     }

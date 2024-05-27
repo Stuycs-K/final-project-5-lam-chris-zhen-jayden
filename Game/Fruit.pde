@@ -1,7 +1,7 @@
 public class Fruit{
 private PVector position, velocity, acceleration;
 private float mass, radius;
-//public int whatFruit = (int)(Math.random() * 11);
+//private int whatFruit = (int)(Math.random() * 11);
 private int whatFruit = 0;
 private boolean explode;
 private boolean isSlashed = false;
@@ -14,7 +14,7 @@ public Fruit(float x, float y, float xspeed, float yspeed, float radius_, float 
   acceleration = new PVector(0, 0);
   mass = mass_;
   radius = radius_;
-  whatFruit = 0; 
+  whatFruit = (int)(Math.random() * 2);
   cut = false; 
 }
 public Fruit(float x, float y, float xspeed, float yspeed, float radius_, float mass_, int FruitType){
@@ -52,24 +52,42 @@ public PVector attractTo(Fruit other){
   force.setMag((float) mag);
   return force;
 }
-
+// 0 = Bomb
+// 1 = Watermelon
+// 2 = Coconut
+// 3 = Lemon
+// 4 = 
+// 5 =
+// 6 =
 public void display(){
- if(!isSlashed){
    if(whatFruit == 0){
      fill(0);
      noStroke();
      circle(position.x, position.y, (float)radius * 2);
-   }
-  
-   
+     fill(240, 0, 0);
+     quad(position.x - 35, position.y - 30, position.x - 25, position.y -30, position.x + 25, position.y + 30, position.x + 35, position.y + 30);
+     quad(position.x - 35, position.y + 30, position.x - 25, position.y + 30, position.x + 25, position.y - 30, position.x + 35, position.y - 30);
+
  }
+  if(whatFruit == 1){
+      fill(64, 205, 64);
+      noStroke();
+      ellipse(position.x, position.y, 2 *(float)radius * (float)Math.sqrt(2), 2 * (float)radius);
+}
+     fill(0);
+
 }
 
 public void slashed(){
   
   if (!cut && pmouseX > position.x - radius && pmouseX < position.x + radius && pmouseY > position.y - radius && pmouseY < position.y + radius){
     isSlashed = true; 
+      if(whatFruit == 0){
+        lives = 0;
+      //Explode
+      }
   }
+
  // if(isSlashed){
   //}
 }
