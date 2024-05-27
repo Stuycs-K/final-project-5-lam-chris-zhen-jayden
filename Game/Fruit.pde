@@ -2,9 +2,10 @@ public class Fruit{
 private PVector position, velocity, acceleration;
 private float mass, radius;
 //public int whatFruit = (int)(Math.random() * 11);
-public int whatFruit = 0;
+private int whatFruit = 0;
 private boolean explode;
 private boolean isSlashed = false;
+private boolean cut; //when we replace the spheres with fruit
 
 
 public Fruit(float x, float y, float xspeed, float yspeed, float radius_, float mass_){
@@ -13,14 +14,25 @@ public Fruit(float x, float y, float xspeed, float yspeed, float radius_, float 
   acceleration = new PVector(0, 0);
   mass = mass_;
   radius = radius_;
+  whatFruit = 0; 
+  cut = false; 
 }
+public Fruit(float x, float y, float xspeed, float yspeed, float radius_, float mass_, int FruitType){
+  position = new PVector(x, y);
+  velocity = new PVector(xspeed, yspeed);
+  acceleration = new PVector(0, 0);
+  mass = mass_;
+  radius = radius_;
+  whatFruit = FruitType;
+  cut = true;
+}
+
+
 
 public boolean isDead(){
   return (velocity.y > 0 && position.y > 900);
 }
-public boolean isSlashed(){
-  return (isSlashed);
-}
+
 
 public void applyForce(PVector f){
   acceleration.add(PVector.div(f, mass));
@@ -55,7 +67,7 @@ public void display(){
 
 public void slashed(){
   
-  if (pmouseX > position.x - radius && pmouseX < position.x + radius && pmouseY > position.y - radius && pmouseY < position.y + radius){
+  if (!cut && pmouseX > position.x - radius && pmouseX < position.x + radius && pmouseY > position.y - radius && pmouseY < position.y + radius){
     isSlashed = true; 
   }
  // if(isSlashed){

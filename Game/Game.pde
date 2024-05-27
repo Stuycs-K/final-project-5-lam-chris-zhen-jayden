@@ -27,24 +27,32 @@ void draw(){
     f.display();
     f.applyForce(f.attractTo(Floor));
     f.slashed(); 
-    if(f.isSlashed()){
+    if(f.isSlashed){
+      
       Fruits.remove(f);
+      Fruits.add(new Fruit(f.position.x, f.position.y, 5, 0, 50, 50.0, f.whatFruit));
+      Fruits.add(new Fruit(f.position.x,f.position.y, -5, 0, 50, 50.0, f.whatFruit));
        //if slashed make two fruits; 
     }
-    if (f.isDead()){
-      Fruits.remove(f);
-      lives--;
       
+    
+    if (f.isDead()){
+      
+      Fruits.remove(f);
+      if (!f.cut){
+        lives--;
+       }
     }
   }
+  
   
   
   //Launchign fruit and time;
   if (lives > 0){
   text(time, 10, 10);
   
-    if (Fruits.size() == 0 && time % 20 == 0){
-    Fruits.add(new Fruit(600, 1000, 0.0, -25, 6, 50.0));
+    if (Fruits.size() == 0 && time % 15 == 0){
+    Fruits.add(new Fruit(600, 1000, 0.0, -25, 50, 50.0));
     //will need to randomize the speed within certain limits and location of launch;
     }
   }
@@ -62,6 +70,8 @@ void draw(){
   }
 
 }
+
+ 
 
 void mouseMoved(){
 }
