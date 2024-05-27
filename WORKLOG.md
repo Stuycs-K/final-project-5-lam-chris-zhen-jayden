@@ -27,3 +27,9 @@ worked on launch timing and started slashing
 ##5/25/24
 
 Finished slash registration for fruits -- stil need to made them split into two and stuff like that
+
+## Jayden Zhen
+
+### 5/27/24
+
+Splitting the fruit when slashed and randomizing speed and spawn location
