@@ -9,6 +9,7 @@ Fruit Floor;
 int w = 1200;
 int h = 900;
 int difficulty = 3; 
+int highScore; 
 
 void setup(){
   size(1200, 900); 
@@ -17,6 +18,7 @@ void setup(){
   Fruits = new ArrayList<Fruit>();
   lives = 3;
   countdown = 20;
+  score = 0;
   
 }
 
@@ -55,6 +57,9 @@ void draw(){
         text("X", 80, 100);
         text("X", 150, 100);
         fill(color(0, 0, 0));
+        highScore = score; 
+        fill(color(100, 100, 0));
+        rect(450, 450, 300, 150);
   }
   
   //Launchign fruit and time;
@@ -64,6 +69,7 @@ void draw(){
       textSize(10) ;
       text(time, 10, 10);
       textSize(100) ;
+     
     if(lives == 3){
         fill(color(0, 0, 0));
         text("X", 10, 100);
@@ -114,6 +120,12 @@ void draw(){
 }
 
  
-
+void mouseClicked(){
+  if (lives == 0){
+    if(mouseX > 450 && mouseX < 750 && mouseY > 450 && mouseY <600){
+      setup();
+    }
+  }
+}
 void mouseMoved(){
 }
