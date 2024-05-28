@@ -1,4 +1,6 @@
-int score; 
+int score;
+int combo;
+int comboTime;
 int lives;
 String gameMode;
 int time;
@@ -13,16 +15,21 @@ int difficulty = 3;
 void setup(){
   size(1200, 900); 
   time = 0;
+  comboTime = 0;
   Floor = new Fruit(width/2, 150000, 0, 0, 100, 500000000);
   Fruits = new ArrayList<Fruit>();
   lives = 3;
   countdown = 20;
-  
 }
 
 void draw(){
   background(255);
-   
+  if(comboTime > 0){
+    comboTime--;
+  }else{
+    comboTime = 0;
+    combo = 0;
+  }
   
  //Fruit array
   for (int i = 0; i < Fruits.size(); i++){
@@ -32,7 +39,14 @@ void draw(){
     f.applyForce(f.attractTo(Floor));
     f.slashed(); 
     if(f.isSlashed){
-      // Make something for bomb explosion 
+      combo++;
+      comboTime += 50;
+      if(comboTime > 50){
+        comboTime = 50;
+      }
+      score += combo;
+      // Make something for bomb explosion
+      
       Fruits.remove(f);
       Fruits.add(new Fruit(f.position.x, f.position.y, 5, 0, 50, 50.0, f.whatFruit));
       Fruits.add(new Fruit(f.position.x,f.position.y, -5, 0, 50, 50.0, f.whatFruit));
@@ -49,44 +63,14 @@ void draw(){
     }
   }
   
-  if (lives == 0){
-        fill(color(255, 0, 0));
-        text("X", 10, 100);
-        text("X", 80, 100);
-        text("X", 150, 100);
-        fill(color(0, 0, 0));
-  }
+  //Displaying score
+  text(score, 1100, 20);
+  
   
   //Launchign fruit and time;
   //randomize timing to x amount after all fruits are cut
   if (lives > 0){
-      fill(color(0, 0, 0));
-      textSize(10) ;
-      text(time, 10, 10);
-      textSize(100) ;
-    if(lives == 3){
-        fill(color(0, 0, 0));
-        text("X", 10, 100);
-        text("X", 80, 100);
-        text("X", 150, 100);
-    }
-    if (lives == 2){
-      fill(color(255, 0, 0));
-      text("X", 150, 100);
-      fill(color(0, 0, 0));
-       text("X", 10, 100);
-        text("X", 80, 100);
-    }
-    if (lives == 1){
-      fill(color(255, 0, 0));
-      text("X", 150, 100);
-      text("X", 80, 100);
-        fill(color(0, 0, 0));
-       text("X", 10, 100);
-
-    }
-  
-      
+  text(time, 10, 10);
   int spawntime = (int)(Math.random()*30 + 10);
     if (Fruits.size() == 0 && time % spawntime == 0){
     
