@@ -1,0 +1,103 @@
+int score;
+int combo;
+int comboTime;
+int lives;
+String gameMode;
+int time;
+int gravitationalConstant = 20; 
+ArrayList<Fruit>Fruits;
+int countdown;
+Fruit Floor; 
+int w = 1200;
+int h = 900;
+int difficulty = 3; 
+
+void setup(){
+  size(1200, 900); 
+  time = 0;
+  comboTime = 0;
+  Floor = new Fruit(width/2, 150000, 0, 0, 100, 500000000);
+  Fruits = new ArrayList<Fruit>();
+  lives = 3;
+  countdown = 20;
+}
+
+void draw(){
+  background(255);
+  if(comboTime > 0){
+    comboTime--;
+  }else{
+    comboTime = 0;
+    combo = 0;
+  }
+  
+ //Fruit array
+  for (int i = 0; i < Fruits.size(); i++){
+    Fruit f = Fruits.get(i);
+    f.move();
+    f.display();
+    f.applyForce(f.attractTo(Floor));
+    f.slashed(); 
+    if(f.isSlashed){
+      combo++;
+      comboTime += 50;
+      if(comboTime > 50){
+        comboTime = 50;
+      }
+      score += combo;
+      // Make something for bomb explosion
+      
+      Fruits.remove(f);
+      Fruits.add(new Fruit(f.position.x, f.position.y, 5, 0, 50, 50.0, f.whatFruit));
+      Fruits.add(new Fruit(f.position.x,f.position.y, -5, 0, 50, 50.0, f.whatFruit));
+       //if slashed make two fruits; 
+    }
+      
+    
+    if (f.isDead()){
+      
+      Fruits.remove(f);
+      if (!f.cut && f.whatFruit != 0){
+        lives--;
+       }
+    }
+  }
+  
+  //Displaying score
+  text(score, 1100, 20);
+  
+  
+  //Launchign fruit and time;
+  //randomize timing to x amount after all fruits are cut
+  if (lives > 0){
+  text(time, 10, 10);
+  int spawntime = (int)(Math.random()*30 + 10);
+    if (Fruits.size() == 0 && time % spawntime == 0){
+    
+    for (int i = 0; i < difficulty; i++){
+      int spawnwidth = (int)((Math.random() * (w - 200)) + 100);
+      int speedup = (int)((Math.random() * -5) - 25);
+    Fruits.add(new Fruit(spawnwidth, 1000, (int)(Math.random() * 2) - (int)(Math.random() * 2), speedup, 50, 50.0));
+    }
+    //will need to randomize the speed within certain limits and location of launch;
+    }
+  }
+  
+  
+  
+  
+  //Timer 
+  if(countdown == 0){
+    countdown = 20;
+    time++; 
+  }
+   if(countdown > 0){
+    countdown --;
+  }
+
+}
+
+ 
+
+void mouseMoved(){
+}
