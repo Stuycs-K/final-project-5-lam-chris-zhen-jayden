@@ -36,6 +36,6 @@ Splitting the fruit when slashed and randomizing speed and spawn location
 
 ## Chris Lam
 
-##5/25/24
+##5/27/24
 
 Randomized the inital x velocities so that fruit wouldn't always go straight up, worked on bomb and watermelon.
