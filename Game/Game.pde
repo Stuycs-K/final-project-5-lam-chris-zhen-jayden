@@ -17,6 +17,7 @@ void setup(){
   Fruits = new ArrayList<Fruit>();
   lives = 3;
   countdown = 20;
+  
 }
 
 void draw(){
@@ -48,12 +49,44 @@ void draw(){
     }
   }
   
-  
+  if (lives == 0){
+        fill(color(255, 0, 0));
+        text("X", 10, 100);
+        text("X", 80, 100);
+        text("X", 150, 100);
+        fill(color(0, 0, 0));
+  }
   
   //Launchign fruit and time;
   //randomize timing to x amount after all fruits are cut
   if (lives > 0){
-  text(time, 10, 10);
+      fill(color(0, 0, 0));
+      textSize(10) ;
+      text(time, 10, 10);
+      textSize(100) ;
+    if(lives == 3){
+        fill(color(0, 0, 0));
+        text("X", 10, 100);
+        text("X", 80, 100);
+        text("X", 150, 100);
+    }
+    if (lives == 2){
+      fill(color(255, 0, 0));
+      text("X", 150, 100);
+      fill(color(0, 0, 0));
+       text("X", 10, 100);
+        text("X", 80, 100);
+    }
+    if (lives == 1){
+      fill(color(255, 0, 0));
+      text("X", 150, 100);
+      text("X", 80, 100);
+        fill(color(0, 0, 0));
+       text("X", 10, 100);
+
+    }
+  
+      
   int spawntime = (int)(Math.random()*30 + 10);
     if (Fruits.size() == 0 && time % spawntime == 0){
     
