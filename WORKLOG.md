@@ -24,7 +24,7 @@ worked on launch timing and started slashing
 
 ## Chris Lam
 
-##5/25/24
+5/25/24
 
 Finished slash registration for fruits -- stil need to made them split into two and stuff like that
 
@@ -33,3 +33,13 @@ Finished slash registration for fruits -- stil need to made them split into two 
 ### 5/27/24
 
 Splitting the fruit when slashed and randomizing speed and spawn location
+
+## Chris Lam
+
+##5/27/24
+
+Made bomb function as a bomb and fruit horizontal velcotites a little random so they don't go straight up
+
+##5/28/24
+
+Making progress on score system & updated font to be fruit ninja
