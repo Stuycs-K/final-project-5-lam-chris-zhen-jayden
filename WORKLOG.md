@@ -43,3 +43,10 @@ Made bomb function as a bomb and fruit horizontal velcotites a little random so 
 ##5/28/24
 
 Making progress on score system & updated font to be fruit ninja
+
+
+## Jayden Zhen
+
+### 5/28/24
+
+Displayed the lives and started play again feature
