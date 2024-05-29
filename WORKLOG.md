@@ -50,3 +50,9 @@ Making progress on score system & updated font to be fruit ninja
 ### 5/28/24
 
 Displayed the lives and started play again feature
+
+## Chris Lam
+
+### 5/29/24
+
+Worked more on fruit combos, debugging is taking a while.
