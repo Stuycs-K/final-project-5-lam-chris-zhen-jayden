@@ -13,6 +13,7 @@ int h = 900;
 int difficulty = 3; 
 int highScore; 
 PFont font;
+float death_x, death_y;
 void setup(){
   font =  createFont("go3v2.ttf", 32);
   textFont(font);
@@ -47,15 +48,17 @@ void draw(){
     if(f.isSlashed){
       if(!(f.whatFruit == 0)){
       combo++;
-      f.displayCombo();
-      comboTime += 50;
-      if(comboTime > 50){
-        comboTime = 50;
+      comboTime += 500;
+      if(comboTime > 500){
+        comboTime = 500;
       }
       score += combo;
-      
+      death_x = f.position.x;
+      death_y = f.position.y;
+      f.displayCombo(death_x, death_y);
       // Make something for bomb explosion 
       Fruits.remove(f);
+      System.out.println(death_y);
       Fruits.add(new Fruit(f.position.x, f.position.y, 5, 0, 50, 50.0, f.whatFruit));
       Fruits.add(new Fruit(f.position.x,f.position.y, -5, 0, 50, 50.0, f.whatFruit));
        //if slashed make two fruits; 

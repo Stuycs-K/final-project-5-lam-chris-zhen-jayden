@@ -6,7 +6,7 @@ private int whatFruit = 0;
 private boolean explode;
 private boolean isSlashed = false;
 private boolean cut; //when we replace the spheres with fruit
-private int timer = 1000000;
+private int timer = 500;
 
 
 public Fruit(float x, float y, float xspeed, float yspeed, float radius_, float mass_){
@@ -81,18 +81,19 @@ public void display(){
 
 }
 
-public void displayCombo(){
+
+public void displayCombo(float x, float y){
+  if(isSlashed && combo > 1){
    fill(255, 0, 0);
    textSize(100);
-   int xPos = (int)position.x;
-   int yPos = (int)position.y;
    if(timer > 0){
-     text(combo + " Fruit Combo!", xPos, yPos);
+     text(combo + " Fruit Combo!", x, y);
+     timer--;
+   }
  }
 }
 
 public void slashed(){
-  
   if (!cut && pmouseX > position.x - radius && pmouseX < position.x + radius && pmouseY > position.y - radius && pmouseY < position.y + radius){
     isSlashed = true; 
       if(whatFruit == 0){
@@ -100,8 +101,9 @@ public void slashed(){
       //Explode
       }
   }
-
- // if(isSlashed){
-  //}
 }
+
+
+
+
 }
