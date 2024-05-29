@@ -12,8 +12,10 @@ int w = 1200;
 int h = 900;
 int difficulty = 3; 
 int highScore; 
-
+PFont font;
 void setup(){
+  font =  createFont("go3v2.ttf", 32);
+  textFont(font);
   size(1200, 900); 
   time = 0;
   comboTime = 0;
@@ -27,6 +29,7 @@ void setup(){
 }
 
 void draw(){
+
   background(255);
   if(comboTime > 0){
     comboTime--;
@@ -34,7 +37,6 @@ void draw(){
     comboTime = 0;
     combo = 0;
   }
- 
  //Fruit array
   for (int i = 0; i < Fruits.size(); i++){
     Fruit f = Fruits.get(i);
@@ -45,10 +47,7 @@ void draw(){
     if(f.isSlashed){
       if(!(f.whatFruit == 0)){
       combo++;
-      if(combo > 2){
-        fill(255, 0, 0);
-        text(combo + " fruit combo!", f.position.x, f.position.y); 
-      }
+      f.displayCombo();
       comboTime += 50;
       if(comboTime > 50){
         comboTime = 50;
@@ -74,8 +73,8 @@ void draw(){
   }
   
      //Displaying score
-     fill(color(255, 0, 0));
-     text(score, 1100, 80);
+     fill(color(255, 215, 0));
+     text(score, 1000, 100);
   
   if (lives == 0){
         fill(color(255, 0, 0));
