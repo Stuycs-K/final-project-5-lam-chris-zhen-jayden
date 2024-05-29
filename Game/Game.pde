@@ -89,6 +89,9 @@ void draw(){
   
   //Launchign fruit and time;
   //randomize timing to x amount after all fruits are cut
+  if(lives < 0){
+    lives = 0;
+  }
   if (lives > 0){
       fill(color(0, 0, 0));
       textSize(10) ;
@@ -145,7 +148,7 @@ void draw(){
 }
 
  
-void mouseClicked(){
+void mousePressed(){
   if (lives == 0){
     if(mouseX > 450 && mouseX < 750 && mouseY > 450 && mouseY <600){
       setup();
