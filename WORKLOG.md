@@ -61,3 +61,9 @@ Worked more on fruit combos, debugging is taking a while.
 
 ### 5/29/24
 Play Again and difficulty
+
+## Chris Lam
+
+### 5/30/24
+
+Will finish combos after everything is updated to a seperate tab for good CS practice. Learning about rotational motion and tinkering with rotaion() to make fruits rotate midair.
