@@ -56,3 +56,8 @@ Displayed the lives and started play again feature
 ### 5/29/24
 
 Worked more on fruit combos, debugging is taking a while.
+
+## Jayden Zhen
+
+### 5/29/24
+Play Again and difficulty
