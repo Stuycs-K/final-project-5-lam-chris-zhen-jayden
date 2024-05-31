@@ -2,7 +2,7 @@ public class Game{
 int score; 
 
 int comboTime;
-
+int combo;
 String gameMode;
 int time;
 int gravitationalConstant = 20; 
@@ -11,8 +11,9 @@ int countdown;
 Fruit Floor; 
 int w = 1200;
 int h = 900;
-int difficulty = 3; 
+int difficulty; 
 int highScore; 
+int comboDisplayTime;
 
 float death_x, death_y;
   public Game(){
@@ -24,9 +25,10 @@ float death_x, death_y;
     countdown = 20;
     score = 0;
     difficulty = 3;
+    comboDisplayTime = 0;
   }
   
-  void display(){
+  public void display(){
      background(255);
   if(comboTime > 0){
     comboTime--;
@@ -41,25 +43,53 @@ float death_x, death_y;
     f.display();
     f.applyForce(f.attractTo(Floor));
     f.slashed(); 
+    if (comboDisplayTime > 0){
+      text(combo + " Fruit/n Combo/n + " + combo, death_x, death_y);
+    }
     if(f.isSlashed){
       if(!(f.whatFruit == 0)){
-      combo++;
-      comboTime += 500;
-      if(comboTime > 500){
-        comboTime = 500;
+        if (combo == 0){
+          combo++;
+          comboTime = 500;
+        }else{
+          if (comboTime > 0){
+            combo++;
+            comboTime = 500;
+          }
+           if (comboTime == 0){
+              combo = 0;
+              if (combo >= 3){
+                 death_x = f.position.x;
+             death_y = f.position.y;
+             comboDisplayTime = 500; 
+             }
+            
+          }
+        }
+        if (comboDisplayTime > 0){
+          comboDisplayTime--;
+        }
+        
+        
+     // combo++;
+     // comboTime += 500;
+     // if(comboTime > 500){
+      //  comboTime = 500;
+     // }
+   //
+ 
+    //  f.displayCombo(death_x, death_y);
+      // Make something for bomb explosion
       }
-      score += combo;
-      death_x = f.position.x;
-      death_y = f.position.y;
-      f.displayCombo(death_x, death_y);
-      // Make something for bomb explosion 
+         score += combo;
       Fruits.remove(f);
-      System.out.println(death_y);
+     // System.out.println(death_y);
       Fruits.add(new Fruit(f.position.x, f.position.y, 5, 0, 50, 50.0, f.whatFruit));
       Fruits.add(new Fruit(f.position.x,f.position.y, -5, 0, 50, 50.0, f.whatFruit));
        //if slashed make two fruits; 
+    
     }
-    }
+    
       
     
     if (f.isDead()){
@@ -69,6 +99,7 @@ float death_x, death_y;
         lives--;
        }
     }
+  
   }
   
      //Displaying score
@@ -150,6 +181,7 @@ float death_x, death_y;
   
   
   //Timer 
+  comboTime--;
   if(countdown == 0){
     countdown = 20;
     time++; 
@@ -166,6 +198,20 @@ float death_x, death_y;
     }
   }
   }
+          System.out.println(combo);
+        System.out.println(comboDisplayTime);
+         System.out.println(comboTime);
+}
+
+
+
+public void displayCombo(float x, float y){
+ 
+   
+    
+  
+   
+  
 }
 
 }

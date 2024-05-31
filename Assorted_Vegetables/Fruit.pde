@@ -82,16 +82,6 @@ public void display(){
 }
 
 
-public void displayCombo(float x, float y){
-  if(isSlashed && combo > 1){
-   fill(255, 0, 0);
-   textSize(100);
-   if(timer > 0){
-     text(combo + " Fruit Combo!", x, y);
-     timer--;
-   }
- }
-}
 
 public void slashed(){
   if (!cut && pmouseX > position.x - radius && pmouseX < position.x + radius && pmouseY > position.y - radius && pmouseY < position.y + radius){

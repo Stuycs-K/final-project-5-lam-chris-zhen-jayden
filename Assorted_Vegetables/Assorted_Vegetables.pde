@@ -1,5 +1,4 @@
 PFont font;
-int combo;
 int lives;
 Game Veggie;
 void setup(){
