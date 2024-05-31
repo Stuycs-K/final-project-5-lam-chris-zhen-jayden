@@ -67,3 +67,8 @@ Play Again and difficulty
 ### 5/30/24
 
 Will finish combos after everything is updated to a seperate tab for good CS practice. Learning about rotational motion and tinkering with rotaion() to make fruits rotate midair.
+
+## Jayden Zhen
+
+### 5/30/24
+Moved Game to another class from setup and draw. Tried fixing Combo. Fixed bugs for difficulty, live reset, and play again.
