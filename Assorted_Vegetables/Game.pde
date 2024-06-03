@@ -1,8 +1,10 @@
 public class Game{
 int score; 
-
 int comboTime;
 int combo;
+float deathx;
+float deathy;
+int lateTime;
 String gameMode;
 int time;
 int gravitationalConstant = 20; 
@@ -13,23 +15,27 @@ int w = 1200;
 int h = 900;
 int difficulty; 
 int highScore; 
-int comboDisplayTime;
-
-float death_x, death_y;
   public Game(){
     time = 0;
     comboTime = 0;
+    
     Floor = new Fruit(width/2, 150000, 0, 0, 100, 500000000);
     Fruits = new ArrayList<Fruit>();
     lives = 3;
     countdown = 20;
     score = 0;
     difficulty = 3;
-    comboDisplayTime = 0;
   }
   
   public void display(){
-     background(255);
+  background(255);
+  if(combo >= 3){    
+    fill(color(random(255), random(255), random(255)));
+    textSize(50);
+    text(combo + "FRUIT", deathx, deathy);
+    text("COMBO", deathx, deathy + 40);
+
+  }
   if(comboTime > 0){
     comboTime--;
   }else{
@@ -43,31 +49,22 @@ float death_x, death_y;
     f.display();
     f.applyForce(f.attractTo(Floor));
     f.slashed(); 
-    if (comboDisplayTime > 0){
-      text(combo + " Fruit/n Combo/n + " + combo, death_x, death_y);
-    }
     if(f.isSlashed){
       if(!(f.whatFruit == 0)){
         if (combo == 0){
           combo++;
-          comboTime = 500;
+          comboTime = 100;
         }else{
           if (comboTime > 0){
             combo++;
-            comboTime = 500;
+            comboTime = 100;
           }
            if (comboTime == 0){
               combo = 0;
               if (combo >= 3){
-                 death_x = f.position.x;
-             death_y = f.position.y;
-             comboDisplayTime = 500; 
              }
             
           }
-        }
-        if (comboDisplayTime > 0){
-          comboDisplayTime--;
         }
         
         
@@ -82,10 +79,12 @@ float death_x, death_y;
       // Make something for bomb explosion
       }
          score += combo;
+         deathx = f.position.x;
+         deathy = f.position.y;
+  
       Fruits.remove(f);
-     // System.out.println(death_y);
-      Fruits.add(new Fruit(f.position.x, f.position.y, 5, 0, 50, 50.0, f.whatFruit));
-      Fruits.add(new Fruit(f.position.x,f.position.y, -5, 0, 50, 50.0, f.whatFruit));
+      Fruits.add(new Fruit(f.position.x, f.position.y, 5, 0, 50, 50.0, f.whatFruit + 20));
+      Fruits.add(new Fruit(f.position.x,f.position.y, -5, 0, 50, 50.0, f.whatFruit + 20));
        //if slashed make two fruits; 
     
     }
@@ -93,7 +92,6 @@ float death_x, death_y;
       
     
     if (f.isDead()){
-      
       Fruits.remove(f);
       if (!f.cut && f.whatFruit != 0){
         lives--;
@@ -101,23 +99,27 @@ float death_x, death_y;
     }
   
   }
-  
+
      //Displaying score
      fill(color(255, 215, 0));
-     text(score, 1000, 100);
+     text(score, 80, 100);
   
   if (lives == 0){
         while(Fruits.size() >0){
           Fruits.remove(0);
         }
+        textSize(100);
         fill(color(255, 0, 0));
-        text("X", 10, 100);
-        text("X", 80, 100);
-        text("X", 150, 100);
+        text("X", 910, 100);
+        text("X", 980, 100);
+        text("X", 1050, 100);
         fill(color(0, 0, 0));
         highScore = score; 
         fill(color(100, 100, 0));
         rect(450, 450, 300, 150);
+        fill(color(100, 0, 100));
+        textSize(50);
+        text("Play Again", 465, 545);
   }
   
   //Launchign fruit and time;
@@ -133,23 +135,23 @@ float death_x, death_y;
      
     if(lives == 3){
         fill(color(0, 0, 0));
-        text("X", 10, 100);
-        text("X", 80, 100);
-        text("X", 150, 100);
+        text("X", 910, 100);
+        text("X", 980, 100);
+        text("X", 1050, 100);
     }
     if (lives == 2){
       fill(color(255, 0, 0));
-      text("X", 150, 100);
+      text("X", 1050, 100);
       fill(color(0, 0, 0));
-       text("X", 10, 100);
-        text("X", 80, 100);
+       text("X", 910, 100);
+        text("X", 980, 100);
     }
     if (lives == 1){
       fill(color(255, 0, 0));
-      text("X", 150, 100);
-      text("X", 80, 100);
+      text("X", 1050, 100);
+      text("X", 980, 100);
         fill(color(0, 0, 0));
-       text("X", 10, 100);
+       text("X", 910, 100);
 
     }
   
@@ -160,7 +162,7 @@ float death_x, death_y;
     for (int i = 0; i < (int)(Math.random()*(difficulty - 1) + 1); i++){
       int spawnwidth = (int)((Math.random() * (w - 200)) + 100);
       int speedup = (int)((Math.random() * -5) - 25);
-    Fruit a = new Fruit(spawnwidth, 1000, (int)(Math.random() * 2) - (int)(Math.random() * 2), speedup, 50, 50.0);
+    Fruit a = new Fruit(spawnwidth, 1000, (int)(Math.random() * 4) - (int)(Math.random() * 4), speedup, 50, 50.0);
      
       int bombNum = 0;
       for (Fruit k: Fruits){
@@ -169,7 +171,7 @@ float death_x, death_y;
         }
       }
       if (bombNum >= 3 && a.whatFruit == 0){
-        a = new Fruit(spawnwidth, 1000, (int)(Math.random() * 2) - (int)(Math.random() * 2), speedup, 50, 50.0, (int)(Math.random() * 3 + 1));
+        a = new Fruit(spawnwidth, 1000, (int)(Math.random() * 5) - (int)(Math.random() * 5), speedup, 50, 50.0, (int)(Math.random() * 3 + 1));
      
       }
    Fruits.add(a);
@@ -198,20 +200,6 @@ float death_x, death_y;
     }
   }
   }
-          System.out.println(combo);
-        System.out.println(comboDisplayTime);
-         System.out.println(comboTime);
-}
-
-
-
-public void displayCombo(float x, float y){
- 
-   
-    
-  
-   
-  
 }
 
 }

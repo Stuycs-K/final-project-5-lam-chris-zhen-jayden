@@ -1,18 +1,19 @@
 PFont font;
 int lives;
+PImage waterMelonScore;
+
 Game Veggie;
 void setup(){
   font =  createFont("go3v2.ttf", 32);
   textFont(font);
   size(1200, 900); 
   Veggie = new Game();
-  
+  waterMelonScore = loadImage("Watermelon.png");
 }
 
 void draw(){
-
- Veggie.display();
-
+   Veggie.display();
+  image(waterMelonScore, 20, 40);
 }
 
  void mousePressed(){
