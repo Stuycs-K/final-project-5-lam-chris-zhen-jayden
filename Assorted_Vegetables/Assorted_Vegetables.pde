@@ -14,8 +14,8 @@ void setup(){
 void draw(){
    Veggie.display();
   image(waterMelonScore, 20, 40);
-}
 
+}
  void mousePressed(){
   if (lives == 0){
     if(mouseX > 450 && mouseX < 750 && mouseY > 450 && mouseY <600){

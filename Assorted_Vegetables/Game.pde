@@ -15,6 +15,7 @@ int w = 1200;
 int h = 900;
 int difficulty; 
 int highScore; 
+int mode;
   public Game(){
     time = 0;
     comboTime = 0;
@@ -28,7 +29,14 @@ int highScore;
   }
   
   public void display(){
+  if(keyPressed){
+    mode++;
+  }
+  if(mode == 5){
+    mode = 0;
+  }
   background(255);
+   text("" + mode, 10, 500);
   if(combo >= 3){    
     fill(color(random(255), random(255), random(255)));
     textSize(50);
@@ -81,8 +89,10 @@ int highScore;
          score += combo;
          deathx = f.position.x;
          deathy = f.position.y;
-  
+    if(mode == 1){
+    }else{
       Fruits.remove(f);
+    }
       Fruits.add(new Fruit(f.position.x, f.position.y, 5, 0, 50, 50.0, f.whatFruit + 20));
       Fruits.add(new Fruit(f.position.x,f.position.y, -5, 0, 50, 50.0, f.whatFruit + 20));
        //if slashed make two fruits; 
@@ -93,7 +103,7 @@ int highScore;
     
     if (f.isDead()){
       Fruits.remove(f);
-      if (!f.cut && f.whatFruit != 0){
+      if (!f.cut && f.whatFruit != 0 && mode != 2){
         lives--;
        }
     }
@@ -101,6 +111,7 @@ int highScore;
   }
 
      //Displaying score
+     textSize(100);
      fill(color(255, 215, 0));
      text(score, 80, 100);
   
@@ -155,8 +166,11 @@ int highScore;
 
     }
   
-      
   int spawntime = (int)(Math.random()*30 + 10);
+  if(mode == 3){
+    spawntime = 1;
+    difficulty = 9;
+  }
     if (Fruits.size() == 0 && time % spawntime == 0){
     
     for (int i = 0; i < (int)(Math.random()*(difficulty - 1) + 1); i++){
