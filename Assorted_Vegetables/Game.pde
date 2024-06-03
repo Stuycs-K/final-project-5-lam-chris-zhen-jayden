@@ -29,6 +29,8 @@ int mode;
   }
   
   public void display(){
+    fill(0, 0, 0);
+    textSize(50);
   if(keyPressed){
     mode++;
   }
