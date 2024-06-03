@@ -30,7 +30,7 @@ int mode;
   
   public void display(){
     fill(0, 0, 0);
-    textSize(50);
+    textSize(100);
   if(keyPressed){
     mode++;
   }
