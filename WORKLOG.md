@@ -72,3 +72,11 @@ Will finish combos after everything is updated to a seperate tab for good CS pra
 
 ### 5/30/24
 Moved Game to another class from setup and draw. Tried fixing Combo. Fixed bugs for difficulty, live reset, and play again.
+
+## Chris Lam
+
+### 5/31/24
+Worked on rotations but I am utterly confused.
+
+### 6/2/24
+Fixed Combos (finally), made two more fruits and made fruit splits display their split selves. Switched lives and score and worked on demo.
