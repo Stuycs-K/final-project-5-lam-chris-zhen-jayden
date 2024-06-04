@@ -6,7 +6,8 @@ private int whatFruit = 0;
 private boolean explode;
 private boolean isSlashed = false;
 private boolean cut; //when we replace the spheres with fruit
-private int timer = 1000000;
+private int timer = 500;
+private PImage bomb, watermelon, coconut, lemon, cut_watermelon, cut_coconut, cut_lemon;
 
 
 public Fruit(float x, float y, float xspeed, float yspeed, float radius_, float mass_){
@@ -15,7 +16,7 @@ public Fruit(float x, float y, float xspeed, float yspeed, float radius_, float 
   acceleration = new PVector(0, 0);
   mass = mass_;
   radius = radius_;
-  whatFruit = (int)(Math.random() * 2);
+  whatFruit = (int)(Math.random() * 4);
   cut = false; 
 }
 public Fruit(float x, float y, float xspeed, float yspeed, float radius_, float mass_, int FruitType){
@@ -33,7 +34,6 @@ public Fruit(float x, float y, float xspeed, float yspeed, float radius_, float 
 public boolean isDead(){
   return (velocity.y > 0 && position.y > 900);
 }
-
 
 public void applyForce(PVector f){
   acceleration.add(PVector.div(f, mass));
@@ -60,39 +60,66 @@ public PVector attractTo(Fruit other){
 // 4 = 
 // 5 =
 // 6 =
+// 20 = 
+// 21 = cutWatermelon
+// 22 = cutCoconut
+// 23 = cutLemon
+// 24 = 
+// 25 =
+// 26 =
+
 public void display(){
+      noStroke();
    if(whatFruit == 0){
      fill(0);
-     noStroke();
      circle(position.x, position.y, (float)radius * 2);
      fill(240, 0, 0);
      quad(position.x - 35, position.y - 30, position.x - 25, position.y -30, position.x + 25, position.y + 30, position.x + 35, position.y + 30);
      quad(position.x - 35, position.y + 30, position.x - 25, position.y + 30, position.x + 25, position.y - 30, position.x + 35, position.y - 30);
 
  }
-
- 
   if(whatFruit == 1){
+      radius = 150;
       fill(64, 205, 64);
-      noStroke();
-      ellipse(position.x, position.y, 2 *(float)radius * (float)Math.sqrt(2), 2 * (float)radius);
+      watermelon = loadImage("bigWatermelon.png");
+      watermelon.resize((int)radius, 0);
+      image(watermelon, position.x, position.y);
+      //ellipse(position.x, position.y, 2 *(float)radius * (float)Math.sqrt(2), 2 * (float)radius);
+}
+  if(whatFruit == 21){
+      radius = 100;
+      watermelon = loadImage("cutWatermelon.png");
+      watermelon.resize((int)radius, 0);
+      image(watermelon, position.x, position.y);
+}
+  if(whatFruit == 2){
+      radius = 100;
+      coconut = loadImage("Coconut.png");
+      coconut.resize((int)radius, 0);
+      image(coconut, position.x, position.y);
+}  if(whatFruit == 22){
+      radius = 100;
+      cut_coconut = loadImage("cutCoconut.png");
+      cut_coconut.resize((int)radius, 0);
+      image(cut_coconut, position.x, position.y);
+}
+  if(whatFruit == 3){
+      radius = 75;
+      lemon = loadImage("Lemon.png");
+      lemon.resize((int)radius, 0);
+      image(lemon, position.x, position.y);
+}  if(whatFruit == 23){
+      radius = 75;
+      cut_lemon = loadImage("cutLemon.png");
+      cut_lemon.resize((int)radius, 0);
+      image(cut_lemon, position.x, position.y);
 }
      fill(0);
-
 }
 
-public void displayCombo(){
-   fill(255, 0, 0);
-   textSize(100);
-   int xPos = (int)position.x;
-   int yPos = (int)position.y;
-   if(timer > 0){
-     text(combo + " Fruit Combo!", xPos, yPos);
- }
-}
+
 
 public void slashed(){
-  
   if (!cut && pmouseX > position.x - radius && pmouseX < position.x + radius && pmouseY > position.y - radius && pmouseY < position.y + radius){
     isSlashed = true; 
       if(whatFruit == 0){
@@ -100,8 +127,9 @@ public void slashed(){
       //Explode
       }
   }
-
- // if(isSlashed){
-  //}
 }
+
+
+
+
 }

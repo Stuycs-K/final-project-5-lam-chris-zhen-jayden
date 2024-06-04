@@ -56,3 +56,27 @@ Displayed the lives and started play again feature
 ### 5/29/24
 
 Worked more on fruit combos, debugging is taking a while.
+
+## Jayden Zhen
+
+### 5/29/24
+Play Again and difficulty
+
+## Chris Lam
+
+### 5/30/24
+
+Will finish combos after everything is updated to a seperate tab for good CS practice. Learning about rotational motion and tinkering with rotaion() to make fruits rotate midair.
+
+## Jayden Zhen
+
+### 5/30/24
+Moved Game to another class from setup and draw. Tried fixing Combo. Fixed bugs for difficulty, live reset, and play again.
+
+## Chris Lam
+
+### 5/31/24
+Worked on rotations but I am utterly confused.
+
+### 6/2/24
+Fixed Combos (finally), made two more fruits and made fruit splits display their split selves. Switched lives and score and worked on demo.
