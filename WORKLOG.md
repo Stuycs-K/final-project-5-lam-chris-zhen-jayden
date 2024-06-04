@@ -80,3 +80,6 @@ Worked on rotations but I am utterly confused.
 
 ### 6/2/24
 Fixed Combos (finally), made two more fruits and made fruit splits display their split selves. Switched lives and score and worked on demo.
+
+### 6/4/2024
+Added strawberry, green/red apple, orange, lime mango, pineaple
