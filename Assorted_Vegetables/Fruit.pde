@@ -16,7 +16,7 @@ public Fruit(float x, float y, float xspeed, float yspeed, float radius_, float 
   acceleration = new PVector(0, 0);
   mass = mass_;
   radius = radius_;
-  whatFruit = (int)(Math.random() * 4);
+  whatFruit = (int)(Math.random() * 12);
   cut = false; 
 }
 public Fruit(float x, float y, float xspeed, float yspeed, float radius_, float mass_, int FruitType){
@@ -57,9 +57,14 @@ public PVector attractTo(Fruit other){
 // 1 = Watermelon
 // 2 = Coconut
 // 3 = Lemon
-// 4 = 
-// 5 =
+// 4 = Orange
+// 5 = Lime
 // 6 =
+// 7 =
+// 8 =
+// 9 =
+// 10 =
+// 11 =
 // 20 = 
 // 21 = cutWatermelon
 // 22 = cutCoconut
@@ -93,24 +98,112 @@ public void display(){
       image(watermelon, position.x, position.y);
 }
   if(whatFruit == 2){
-      radius = 100;
+      radius = 125;
       coconut = loadImage("Coconut.png");
       coconut.resize((int)radius, 0);
       image(coconut, position.x, position.y);
 }  if(whatFruit == 22){
-      radius = 100;
+      radius = 125;
       cut_coconut = loadImage("cutCoconut.png");
       cut_coconut.resize((int)radius, 0);
       image(cut_coconut, position.x, position.y);
 }
   if(whatFruit == 3){
-      radius = 75;
+      radius = 65;
       lemon = loadImage("Lemon.png");
       lemon.resize((int)radius, 0);
       image(lemon, position.x, position.y);
 }  if(whatFruit == 23){
-      radius = 75;
+      radius = 85;
       cut_lemon = loadImage("cutLemon.png");
+      cut_lemon.resize((int)radius, 0);
+      image(cut_lemon, position.x, position.y);
+}
+  if(whatFruit == 4){
+      radius = 105;
+      lemon = loadImage("Orange.png");
+      lemon.resize((int)radius, 0);
+      image(lemon, position.x, position.y);
+}  if(whatFruit == 24){
+      radius = 105;
+      cut_lemon = loadImage("cutOrange.png");
+      cut_lemon.resize((int)radius, 0);
+      image(cut_lemon, position.x, position.y);
+}
+  if(whatFruit == 5){
+      radius = 70;
+      lemon = loadImage("Lime.png");
+      lemon.resize((int)radius, 0);
+      image(lemon, position.x, position.y);
+}  if(whatFruit == 25){
+      radius = 70;
+      cut_lemon = loadImage("cutLime.png");
+      cut_lemon.resize((int)radius, 0);
+      image(cut_lemon, position.x, position.y);
+}
+  if(whatFruit == 6){
+      radius = 120;
+      lemon = loadImage("Mango.png");
+      lemon.resize((int)radius, 0);
+      image(lemon, position.x, position.y);
+}  if(whatFruit == 26){
+      radius = 110;
+      cut_lemon = loadImage("cutMango.png");
+      cut_lemon.resize((int)radius, 0);
+      image(cut_lemon, position.x, position.y);
+}
+  if(whatFruit == 7){
+      radius = 140;
+      lemon = loadImage("Pineapple.png");
+      lemon.resize((int)radius, 0);
+      image(lemon, position.x, position.y);
+}  if(whatFruit == 27){
+      radius = 140;
+      cut_lemon = loadImage("cutPineapple.png");
+      cut_lemon.resize((int)radius, 0);
+      image(cut_lemon, position.x, position.y);
+}
+  if(whatFruit == 8){
+      radius = 70;
+      lemon = loadImage("Kiwi.png");
+      lemon.resize((int)radius, 0);
+      image(lemon, position.x, position.y);
+}  if(whatFruit == 28){
+      radius = 70;
+      cut_lemon = loadImage("cutKiwi.png");
+      cut_lemon.resize((int)radius, 0);
+      image(cut_lemon, position.x, position.y);
+}
+  if(whatFruit == 9){
+      radius = 50;
+      lemon = loadImage("Strawberry.png");
+      lemon.resize((int)radius, 0);
+      image(lemon, position.x, position.y);
+}  if(whatFruit == 29){
+      radius = 50;
+      cut_lemon = loadImage("cutStrawberry.png");
+      cut_lemon.resize((int)radius, 0);
+      image(cut_lemon, position.x, position.y);
+}
+  if(whatFruit == 10){
+      radius = 80;
+      lemon = loadImage("Greenapple.png");
+      lemon.resize((int)radius, 0);
+      image(lemon, position.x, position.y);
+}  if(whatFruit == 30){
+      radius = 80;
+      cut_lemon = loadImage("cutGreenapple.png");
+      cut_lemon.resize((int)radius, 0);
+      image(cut_lemon, position.x, position.y);
+}
+  if(whatFruit == 11){
+      radius = 80;
+      lemon = loadImage("Redapple.png");
+      lemon.resize((int)radius, 0);
+      image(lemon, position.x, position.y);
+}  if(whatFruit == 31){
+      radius = 80;
+      cut_lemon = loadImage("cutRedapple.png");
       cut_lemon.resize((int)radius, 0);
       image(cut_lemon, position.x, position.y);
 }

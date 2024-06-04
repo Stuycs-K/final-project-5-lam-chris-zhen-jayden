@@ -187,7 +187,7 @@ int mode;
         }
       }
       if (bombNum >= 3 && a.whatFruit == 0){
-        a = new Fruit(spawnwidth, 1000, (int)(Math.random() * 5) - (int)(Math.random() * 5), speedup, 50, 50.0, (int)(Math.random() * 3 + 1));
+        a = new Fruit(spawnwidth, 1000, (int)(Math.random() * 5) - (int)(Math.random() * 5), speedup, 50, 50.0, (int)(Math.random() * 11 + 1));
      
       }
    Fruits.add(a);

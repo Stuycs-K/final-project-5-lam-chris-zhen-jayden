@@ -1,4 +1,4 @@
-public class Freeze extends Fruit{
+/*public class Freeze extends Fruit{
   public Freeze(float x, float y, float xspeed, float yspeed, float radius_, float mass_){
     super( x,  y,  xspeed, yspeed,  radius_,  mass_, 8);
   }
@@ -14,4 +14,4 @@ public class Freeze extends Fruit{
           countdown --;
         }
   }
-}
+}*/
