@@ -14,6 +14,7 @@ Fruit Floor;
 int w = 1200;
 int h = 900;
 int difficulty; 
+int fruityCounter;
 
 int mode;
   public Game(){
@@ -26,6 +27,7 @@ int mode;
     countdown = 20;
     score = 0;
     difficulty = 3;
+    fruityCounter = 0;
   }
   
   public void display(){
@@ -181,20 +183,20 @@ int mode;
     for (int i = 0; i < (int)(Math.random()*(difficulty - 1) + 1); i++){
       int spawnwidth = (int)((Math.random() * (w - 200)) + 100);
       int speedup = (int)((Math.random() * -5) - 25);
+      
+      fruityCounter++; 
     Fruit a = new Fruit(spawnwidth, 1000, (int)(Math.random() * 4) - (int)(Math.random() * 4), speedup, 50, 50.0);
      
-      int bombNum = 0;
-      for (Fruit k: Fruits){
-        if (k.whatFruit == 0){
-          bombNum++;
-        }
-      }
-      if (bombNum >= 3 && a.whatFruit == 0){
-        a = new Fruit(spawnwidth, 1000, (int)(Math.random() * 5) - (int)(Math.random() * 5), speedup, 50, 50.0, (int)(Math.random() * 11 + 1));
+     
+      
+      if (fruityCounter == 6){
+        a = new Fruit(spawnwidth, 1000, (int)(Math.random() * 5) - (int)(Math.random() * 5), speedup, 50, 50.0, 0);
      
       }
    Fruits.add(a);
-    
+    if (fruityCounter == 6){
+        fruityCounter = 0;
+      }
     }
   }
   
