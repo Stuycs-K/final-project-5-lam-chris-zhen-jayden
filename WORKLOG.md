@@ -83,3 +83,8 @@ Fixed Combos (finally), made two more fruits and made fruit splits display their
 
 ### 6/4/2024
 Added strawberry, green/red apple, orange, lime mango, pineaple
+
+## Jayden Zhen
+
+### 6/3/24
+Started work on the freeze banana
