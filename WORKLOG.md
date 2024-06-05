@@ -91,3 +91,5 @@ Added strawberry, green/red apple, orange, lime mango, pineaple
 
 ### 6/3/24
 Started work on the freeze banana
+### 6/5/24
+Bomb mechanics reworked and highscore display 
