@@ -14,7 +14,7 @@ Fruit Floor;
 int w = 1200;
 int h = 900;
 int difficulty; 
-int highScore; 
+
 int mode;
   public Game(){
     time = 0;
@@ -127,12 +127,15 @@ int mode;
         text("X", 980, 100);
         text("X", 1050, 100);
         fill(color(0, 0, 0));
+        if (score > highScore){
         highScore = score; 
+        }
         fill(color(100, 100, 0));
         rect(450, 450, 300, 150);
         fill(color(100, 0, 100));
         textSize(50);
         text("Play Again", 465, 545);
+        text(highScore, 465, 500);
   }
   
   //Launchign fruit and time;
@@ -211,10 +214,10 @@ int mode;
     if (difficulty < 9){
       difficulty++; 
     }
-    if (lives > 0 && lives < 3){ //|| combo > 0){
+  }
+  if ( score % 25 == 0 && score != 0 && lives > 0 && lives < 3){ //|| combo > 0){
       lives++;
     }
-  }
   }
 }
 

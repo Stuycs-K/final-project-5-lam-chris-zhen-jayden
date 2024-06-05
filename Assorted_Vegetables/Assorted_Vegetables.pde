@@ -1,6 +1,7 @@
 PFont font;
 int lives;
 PImage waterMelonScore;
+int highScore = 0;
 
 Game Veggie;
 void setup(){
