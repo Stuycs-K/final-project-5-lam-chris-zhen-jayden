@@ -72,6 +72,9 @@ Will finish combos after everything is updated to a seperate tab for good CS pra
 
 ### 5/30/24
 Moved Game to another class from setup and draw. Tried fixing Combo. Fixed bugs for difficulty, live reset, and play again.
+### 5/31/24
+Bug fixes and attempted to fix combo
+
 
 ## Chris Lam
 
