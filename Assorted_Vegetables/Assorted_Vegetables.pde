@@ -15,6 +15,9 @@ void setup(){
 void draw(){
    Veggie.display();
   image(waterMelonScore, 20, 40);
+  textSize(25);
+  text("Best: " + highScore, 20, 150);
+  textSize(50);
 
 }
  void mousePressed(){

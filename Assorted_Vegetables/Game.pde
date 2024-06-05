@@ -181,7 +181,7 @@ int mode;
     if (Fruits.size() == 0 && time % spawntime == 0){
     
     for (int i = 0; i < (int)(Math.random()*(difficulty - 1) + 1); i++){
-      int spawnwidth = (int)((Math.random() * (w - 200)) + 100);
+      int spawnwidth = (int)((Math.random() * (w - 400)) + 200);
       int speedup = (int)((Math.random() * -5) - 25);
       
       fruityCounter++; 
