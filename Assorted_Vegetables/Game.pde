@@ -15,6 +15,7 @@ int w = 1200;
 int h = 900;
 int difficulty; 
 int fruityCounter;
+float angleRotate = 0.0;
 
 int mode;
   public Game(){
@@ -28,6 +29,26 @@ int mode;
     score = 0;
     difficulty = 3;
     fruityCounter = 0;
+    Fruit a = new Fruit(width/2, height/2, 0, 0, 20, 20.0, 1, false);
+    Fruits.add(a);
+    a.move();
+    a.display();
+  }
+  
+  public void displayMenu(){
+    Fruits.get(0).slashed();
+    if(Fruits.get(0).isSlashed){
+      menu= false;
+    }else{
+    translate(width/2 + 75, height/2 + 70);
+    strokeWeight(1);
+    pushMatrix();
+    rotate(radians(angleRotate));
+    text("           Classic Mode", 0, 0);
+    popMatrix();
+  
+  angleRotate += 15;
+    }
   }
   
   public void display(){

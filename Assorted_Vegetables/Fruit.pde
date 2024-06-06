@@ -32,7 +32,16 @@ public Fruit(float x, float y, float xspeed, float yspeed, float radius_, float 
  cut = true;
   }
 }
-
+//Starting Watermelon
+public Fruit(float x, float y, float xspeed, float yspeed, float radius_, float mass_, int FruitType, boolean isCut){
+  position = new PVector(x, y);
+  velocity = new PVector(xspeed, yspeed);
+  acceleration = new PVector(0, 0);
+  mass = mass_;
+  radius = radius_;
+  whatFruit = FruitType;
+  cut = isCut;
+}
 
 
 public boolean isDead(){

@@ -2,7 +2,7 @@ PFont font;
 int lives;
 PImage waterMelonScore;
 int highScore = 0;
-
+boolean menu;
 Game Veggie;
 void setup(){
   font =  createFont("go3v2.ttf", 32);
@@ -10,15 +10,19 @@ void setup(){
   size(1200, 900); 
   Veggie = new Game();
   waterMelonScore = loadImage("Watermelon.png");
+  menu = true;
 }
 
 void draw(){
-   Veggie.display();
+  if(menu){
+   Veggie.displayMenu();
+  }else{
+  Veggie.display();
   image(waterMelonScore, 20, 40);
   textSize(25);
   text("Best: " + highScore, 20, 150);
   textSize(50);
-
+  }
 }
  void mousePressed(){
   if (lives == 0){
