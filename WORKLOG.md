@@ -72,6 +72,7 @@ Will finish combos after everything is updated to a seperate tab for good CS pra
 
 ### 5/30/24
 Moved Game to another class from setup and draw. Tried fixing Combo. Fixed bugs for difficulty, live reset, and play again.
+
 ### 5/31/24
 Bug fixes and attempted to fix combo
 
@@ -99,3 +100,6 @@ Bomb mechanics reworked and highscore display
 
 ### 6/5/24
 Fixed bomb bug where sometimes it would not be able to be cut.
+
+### 6/6/24
+Base menu completed & started on special fruits.
