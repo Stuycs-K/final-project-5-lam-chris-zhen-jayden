@@ -84,12 +84,18 @@ Worked on rotations but I am utterly confused.
 ### 6/2/24
 Fixed Combos (finally), made two more fruits and made fruit splits display their split selves. Switched lives and score and worked on demo.
 
-### 6/4/2024
+### 6/4/24
 Added strawberry, green/red apple, orange, lime mango, pineaple
 
 ## Jayden Zhen
 
 ### 6/3/24
 Started work on the freeze banana
+
 ### 6/5/24
 Bomb mechanics reworked and highscore display 
+
+## Chris Lam
+
+### 6/5/24
+Fixed bomb bug where sometimes it would not be able to be cut.
