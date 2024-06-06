@@ -26,7 +26,11 @@ public Fruit(float x, float y, float xspeed, float yspeed, float radius_, float 
   mass = mass_;
   radius = radius_;
   whatFruit = FruitType;
-  cut = true;
+  if(FruitType == 0){
+    cut = false;
+  }else{
+ cut = true;
+  }
 }
 
 
