@@ -6,20 +6,25 @@ boolean menu;
 boolean freezerTime =false;
 Game Veggie;
 int freezeCounter = 1000;
-
+PImage standard, freeze, start;
 
 
 void setup(){
   font =  createFont("go3v2.ttf", 32);
+    standard = loadImage("FruitBackground.png");
+     //image(standard,0,0);
+     //image(standard,0,550);
   textFont(font);
   size(1200, 900); 
   Veggie = new Game();
   waterMelonScore = loadImage("Watermelon.png");
   menu = true;
+  background(standard);
 
 }
 
 void draw(){
+ 
   if(menu){
    Veggie.displayMenu();
   }else{
