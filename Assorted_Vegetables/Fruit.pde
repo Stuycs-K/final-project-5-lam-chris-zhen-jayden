@@ -16,7 +16,7 @@ public Fruit(float x, float y, float xspeed, float yspeed, float radius_, float 
   acceleration = new PVector(0, 0);
   mass = mass_;
   radius = radius_;
-  whatFruit = (int)(Math.random() * 12);
+  whatFruit = (int)(Math.random() * 13);
   cut = false; 
 }
 public Fruit(float x, float y, float xspeed, float yspeed, float radius_, float mass_, int FruitType){
@@ -74,7 +74,7 @@ public PVector attractTo(Fruit other){
 // 5 = Lime
 // 6 =
 // 7 =
-// 8 =
+// 8 = freeze banana
 // 9 =
 // 10 =
 // 11 =
@@ -216,6 +216,17 @@ public void display(){
       image(lemon, position.x, position.y);
 }  if(whatFruit == 31){
       radius = 80;
+      cut_lemon = loadImage("cutRedapple.png");
+      cut_lemon.resize((int)radius, 0);
+      image(cut_lemon, position.x, position.y);
+      }
+ if(whatFruit == 12){
+      radius = 200;
+      lemon = loadImage("Redapple.png");
+      lemon.resize((int)radius, 0);
+      image(lemon, position.x, position.y);
+}  if(whatFruit == 32){
+      radius = 200;
       cut_lemon = loadImage("cutRedapple.png");
       cut_lemon.resize((int)radius, 0);
       image(cut_lemon, position.x, position.y);

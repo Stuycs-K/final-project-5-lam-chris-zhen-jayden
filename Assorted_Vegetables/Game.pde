@@ -214,6 +214,10 @@ int mode;
         a = new Fruit(spawnwidth, 1000, (int)(Math.random() * 5) - (int)(Math.random() * 5), speedup, 50, 50.0, 0);
      
       }
+      
+      if (a.whatFruit == 12){
+        a = new Freeze(a.position.x, a.position.y, a.velocity.x, a.velocity.y, a.radius, a.mass);
+      }
    Fruits.add(a);
     if (fruityCounter == 6){
         fruityCounter = 0;
@@ -221,8 +225,36 @@ int mode;
     }
   }
   
+  //FREEZE
   
   
+  // IF FROZEN CHANGE BACKGROUND TO A FROZEN BACKGROUND
+  if(freezerTime){
+  for(int i = 0; i < Veggie.Fruits.size(); i++){
+        Fruit f = Veggie.Fruits.get(i);
+       
+        PVector l = f.acceleration;
+   if (freezerTime){
+      if (freezeCounter > 0){
+        if ((!f.cut || f.whatFruit == 0)&& f.velocity.y > 0 ){
+          
+          
+          f.acceleration.y = 0.015;
+         
+
+        }
+      
+        freezeCounter--;
+      }
+      else{
+       f.acceleration = l;
+       freezeCounter = 1000;
+        freezerTime = false;
+       
+      }
+   }
+    }
+  }
   
   //Timer 
   comboTime--;
