@@ -103,3 +103,8 @@ Fixed bomb bug where sometimes it would not be able to be cut.
 
 ### 6/6/24
 Base menu completed & started on special fruits.
+
+## Jayden Zhen
+
+### 6/7/24
+Freeze banana is somewhat functional. Falling cut fruit aren't frozen.
