@@ -29,13 +29,21 @@ int mode;
     score = 0;
     difficulty = 3;
     fruityCounter = 0;
-    Fruit a = new Fruit(width/2, height/2, 0, 0, 20, 20.0, 1, false);
-    Fruits.add(a);
-    a.move();
-    a.display();
+    background(standard);
+   
   }
   
   public void displayMenu(){
+      Fruit a = new Fruit(width/2, height/2, 0, 0, 20, 20.0, 1, false);
+    
+ background(standard);
+  if (Fruits.size() == 0){
+   
+    Fruits.add(a);
+    
+  }
+  a.move();
+    a.display();
     Fruits.get(0).slashed();
     if(Fruits.get(0).isSlashed){
       menu= false;
@@ -44,24 +52,34 @@ int mode;
     strokeWeight(1);
     pushMatrix();
     rotate(radians(angleRotate));
+    fill(color(255, 255, 255));
     text("           Classic Mode", 0, 0);
     popMatrix();
   
-  angleRotate += 15;
+  angleRotate += 5;
     }
   }
   
   public void display(){
+    
     fill(0, 0, 0);
     textSize(100);
+     if (freezerTime){
+    background(freeze);
+  }else{
+ background(standard);
+  }
+  
   if(keyPressed){
     mode++;
   }
   if(mode == 5){
     mode = 0;
   }
-  background(255);
+ // background(255);
+ fill(color(0, 50, 200));
    text("" + mode, 10, 500);
+   fill(0, 0, 0);
   if(combo >= 3){    
     fill(color(random(255), random(255), random(255)));
     textSize(50);
@@ -173,24 +191,28 @@ int mode;
       textSize(100) ;
      
     if(lives == 3){
-        fill(color(0, 0, 0));
+        fill(color(0, 50, 200));
+        
         text("X", 910, 100);
         text("X", 980, 100);
         text("X", 1050, 100);
+        fill(0, 0, 0);
     }
     if (lives == 2){
       fill(color(255, 0, 0));
       text("X", 1050, 100);
-      fill(color(0, 0, 0));
+      fill(color(0, 50, 200));
        text("X", 910, 100);
         text("X", 980, 100);
+        fill(color(0, 0, 0));
     }
     if (lives == 1){
       fill(color(255, 0, 0));
       text("X", 1050, 100);
       text("X", 980, 100);
-        fill(color(0, 0, 0));
+        fill(color(0, 50, 200));
        text("X", 910, 100);
+       fill(color(0, 0, 0));
 
     }
   
@@ -247,6 +269,7 @@ int mode;
         freezeCounter--;
       }
       else{
+        background(standard);
        f.acceleration = l;
        freezeCounter = 1000;
         freezerTime = false;
