@@ -258,7 +258,7 @@ int mode;
         PVector l = f.acceleration;
    if (freezerTime){
       if (freezeCounter > 0){
-        if ((!f.cut || f.whatFruit == 0)&& f.velocity.y > 0 ){
+        if ((!f.cut) && f.whatFruit !=  0 && f.velocity.y > 0 ){
           
           
           f.acceleration.y = 0.015;
