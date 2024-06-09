@@ -108,3 +108,11 @@ Base menu completed & started on special fruits.
 
 ### 6/6/24
 Freeze banana is somewhat functional. Falling cut fruit aren't frozen.
+
+## Chris Lam
+
+### 6/7/24
+Started on Pomegranate
+
+### 6/9/24
+Finalized Pomegranate, updated menu, debugged a lot
