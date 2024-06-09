@@ -116,3 +116,11 @@ Started on Pomegranate
 
 ### 6/9/24
 Finalized Pomegranate, updated menu, debugged a lot
+
+## Jayden Zhen
+
+### 6/7/24
+Background and started modes
+
+### 6/9/24
+Two  modes: Arcade with timer and freeze and Classic with lives
