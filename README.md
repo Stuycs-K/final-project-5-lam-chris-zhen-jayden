@@ -3,7 +3,7 @@
 THIS DOCUMENT IS REQUIRED
 ## Assorted Vegetables: Chris Lam & Jayden Zhen
 ## Overview
-Assorted Vegetables will be fruit ninja clones where fruit will be thrown across the screen for users to slash through with their mouse. Upon having three fruits fall out of the screen before slashing them or slashing a bomb the game will end. The more fruits that are cut in a given interval of time, the higher the combo and the more points will be rewarded for their effort. The arcade gamemode does not feature lives, and instead, has a sixty second timer. The goal is to cut as many fruits as possible while avoiding the bombs in the time limit. A slashed bomb will result in a ten point penalty. The freeze banana works to halt the timer and slow the fruit. 
+Assorted Vegetables will be fruit ninja clones where fruit will be thrown across the screen for users to slash through with their mouse. The more fruits that are cut in a given interval of time, the higher the combo and the more points will be rewarded for their effort. 
 ## Instructions
 Press play in Processing!!!
-Your mouse cursor is the blade. Mode 1 will make any fruit be able to be slashed any # of times. Mode 2 will make you not lose lives when a fruit falls out of screen. Mode 3 makes a lot more fruit spawn. To change modes press any key.
+Your mouse cursor is the blade. The classic gamemode gives the player three lives. Upon having three fruits fall out of the screen before slashing them or slashing a bomb the game will end. The arcade gamemode does not feature lives, and instead, has a sixty second timer. The goal is to cut as many fruits as possible while avoiding the bombs in the time limit. A slashed bomb will result in a ten point penalty. The freeze banana works to halt the timer and slow the fruit. 
