@@ -5,7 +5,7 @@ int combo;
 float deathx;
 float deathy;
 int lateTime;
-String gameMode;
+String gamedebugMode;
 int time;
 int gravitationalConstant = 20; 
 ArrayList<Fruit>Fruits;
@@ -16,12 +16,13 @@ int h = 900;
 int difficulty; 
 int fruityCounter;
 float angleRotate = 0.0;
-
-int mode;
+int beforeTimer;
+int debugMode;
+int currTimer = 5200;
+int freezeTimer;
   public Game(){
     time = 0;
     comboTime = 0;
-    
     Floor = new Fruit(width/2, 150000, 0, 0, 100, 500000000);
     Fruits = new ArrayList<Fruit>();
     lives = 3;
@@ -34,9 +35,12 @@ int mode;
   }
   
   public void displayMenu(){
-      Fruit a = new Fruit(width/2, height/2, 0, 0, 20, 20.0, 1, false);
+    trueTimer = millis();
+    textSize(40);
+    text("Assorted Vegetables II: Attack of the Fruits", 100, 100);
+      Fruit a = new Fruit(300, height/2, 0, 0, 20, 20.0, 1, false);
     
- background(standard);
+ //background(standard);
   if (Fruits.size() == 0){
    
     Fruits.add(a);
@@ -47,38 +51,62 @@ int mode;
     Fruits.get(0).slashed();
     if(Fruits.get(0).isSlashed){
       menu= false;
+      mode = 1;
     }else{
-    translate(width/2 + 75, height/2 + 70);
+    translate(300 + 75, height/2 + 70);
     strokeWeight(1);
     pushMatrix();
     rotate(radians(angleRotate));
     fill(color(255, 255, 255));
+    textSize(30);
     text("           Classic Mode", 0, 0);
     popMatrix();
   
-  angleRotate += 5;
+  angleRotate += 10;
     }
   }
   
+  public void spawnPomegranate(){
+    Fruits = new ArrayList<Fruit>();
+    Pomegranate a = new Pomegranate(width / 2, 1000, 2, -30, 300, 50);
+    Fruits.add(a);
+     // System.out.println(a.isDead());
+  }
+  
   public void display(){
-    
+    if(currTimer / 1000 == 2){
+        spawnPomegranate();
+    }
     fill(0, 0, 0);
     textSize(100);
-     if (freezerTime){
+    if(millis() - trueTimer > 1000){
+      freezeTimer = currTimer;
+      beforeTimer = trueTimer;
+      trueTimer = millis();
+      currTimer -= (trueTimer - beforeTimer);
+    }  
+    if (freezerTime){
     background(freeze);
+    currTimer = freezeTimer;
+    fill(color(155, 255, 0));    
+    text(currTimer / 1000, 950, 200);
   }else{
  background(standard);
+ fill(color(0, 155, 155));
+ if(lives > 0){
+    text(currTimer / 1000, 950, 200);
+ }
   }
   
   if(keyPressed){
-    mode++;
+    debugMode++;
   }
-  if(mode == 5){
-    mode = 0;
+  if(debugMode == 4){
+    debugMode = 0;
   }
  // background(255);
  fill(color(0, 50, 200));
-   text("" + mode, 10, 500);
+   text("" + debugMode, 10, 500);
    fill(0, 0, 0);
   if(combo >= 3){    
     fill(color(random(255), random(255), random(255)));
@@ -132,7 +160,7 @@ int mode;
          score += combo;
          deathx = f.position.x;
          deathy = f.position.y;
-    if(mode == 1){
+    if(debugMode == 1){
     }else{
       Fruits.remove(f);
     }
@@ -144,9 +172,12 @@ int mode;
     
       
     
-    if (f.isDead()){
+    if (f.isDead() && f.whatFruit == 13){
+      score += f.getScore();
       Fruits.remove(f);
-      if (!f.cut && f.whatFruit != 0 && mode != 2){
+    }else if(f.isDead()){
+      Fruits.remove(f);
+      if (!f.cut && f.whatFruit != 0 && debugMode != 2){
         lives--;
        }
     }
@@ -175,7 +206,7 @@ int mode;
         rect(450, 450, 300, 150);
         fill(color(100, 0, 100));
         textSize(50);
-        text("Play Again", 465, 545);
+        text("Menu", 465, 545);
         text(highScore, 465, 500);
   }
   
@@ -217,7 +248,7 @@ int mode;
     }
   
   int spawntime = (int)(Math.random()*30 + 10);
-  if(mode == 3){
+  if(debugMode == 3){
     spawntime = 1;
     difficulty = 9;
   }

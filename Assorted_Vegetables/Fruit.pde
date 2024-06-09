@@ -3,11 +3,9 @@ private PVector position, velocity, acceleration;
 private float mass, radius;
 //private int whatFruit = (int)(Math.random() * 11);
 private int whatFruit = 0;
-private boolean explode;
 private boolean isSlashed = false;
 private boolean cut; //when we replace the spheres with fruit
-private int timer = 500;
-private PImage bomb, watermelon, coconut, lemon, cut_watermelon, cut_coconut, cut_lemon;
+private PImage watermelon, coconut, lemon, cut_coconut, cut_lemon;
 
 
 public Fruit(float x, float y, float xspeed, float yspeed, float radius_, float mass_){
@@ -45,12 +43,14 @@ public Fruit(float x, float y, float xspeed, float yspeed, float radius_, float 
 
 
 public boolean isDead(){
-  return (velocity.y > 0 && position.y > 900);
+  return (velocity.y > 0 && position.y > 925);
 }
 
 public void applyForce(PVector f){
   acceleration.add(PVector.div(f, mass));
 }
+
+public int getScore(){return 0;}
 
 public void move(){
   velocity.add(acceleration);
