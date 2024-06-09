@@ -221,7 +221,11 @@ public void display(){
       image(cut_lemon, position.x, position.y);
       }
  if(whatFruit == 12){
+     
       radius = 200;
+      if (mode == 0){
+       radius = 80;
+     }
       lemon = loadImage("Redapple.png");
       lemon.resize((int)radius, 0);
       image(lemon, position.x, position.y);
@@ -240,7 +244,16 @@ public void slashed(){
   if (!cut && pmouseX > position.x - radius && pmouseX < position.x + radius && pmouseY > position.y - radius && pmouseY < position.y + radius){
     isSlashed = true; 
       if(whatFruit == 0){
+        if (mode == 1){
+          score -= 10;
+          if (score <= 0){
+            score = 0;
+          }
+          
+        }
+        if (mode == 0){
         lives = 0;
+        }
       //Explode
       }
   }

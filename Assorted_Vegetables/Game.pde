@@ -1,5 +1,5 @@
 public class Game{
-int score; 
+
 int comboTime;
 int combo;
 float deathx;
@@ -18,7 +18,7 @@ int fruityCounter;
 float angleRotate = 0.0;
 int beforeTimer;
 int debugMode;
-int currTimer = 5200;
+int currTimer = 60000;
 int freezeTimer;
   public Game(){
     time = 0;
@@ -39,27 +39,54 @@ int freezeTimer;
     textSize(40);
     text("Assorted Vegetables II: Attack of the Fruits", 100, 100);
       Fruit a = new Fruit(300, height/2, 0, 0, 20, 20.0, 1, false);
-    
+      Fruit b = new Fruit(900, height/2, 0, 0, 20, 20.0, 2, false);
  //background(standard);
   if (Fruits.size() == 0){
    
     Fruits.add(a);
-    
+    Fruits.add(b);
   }
   a.move();
+  b.move();
+  b.display();
     a.display();
     Fruits.get(0).slashed();
+    Fruits.get(1).slashed();
     if(Fruits.get(0).isSlashed){
       menu= false;
+      mode = 0;
+      for (int i = 0; i < Fruits.size(); i++){
+        Fruits.remove(0);
+        i--;
+      }
+    }
+    if(Fruits.size() > 0 && Fruits.get(1).isSlashed){
+      menu= false;
       mode = 1;
+      for (int i = 0; i < Fruits.size(); i++){
+        Fruits.remove(0);
+        i--;
+      }
     }else{
     translate(300 + 75, height/2 + 70);
     strokeWeight(1);
     pushMatrix();
     rotate(radians(angleRotate));
     fill(color(255, 255, 255));
-    textSize(30);
-    text("           Classic Mode", 0, 0);
+    textSize(20);
+    text("                  Classic Mode", 0, 0);
+    popMatrix();
+  
+  angleRotate += 10;
+  
+  
+  translate(650 - 75, height/2 - 450);
+    strokeWeight(1);
+    pushMatrix();
+    rotate(radians(angleRotate));
+    fill(color(255, 255, 255));
+    textSize(20);
+     text("                  Arcade Mode", 0, 0);
     popMatrix();
   
   angleRotate += 10;
@@ -74,6 +101,14 @@ int freezeTimer;
   }
   
   public void display(){
+    if (mode == 1){
+      highScore = arcade;
+     
+    }
+    if (mode == 0){
+      
+      highScore = classic;
+    }
     if(currTimer / 1000 == 2){
         spawnPomegranate();
     }
@@ -85,15 +120,17 @@ int freezeTimer;
       trueTimer = millis();
       currTimer -= (trueTimer - beforeTimer);
     }  
-    if (freezerTime){
+    if (freezerTime && mode == 1){
     background(freeze);
     currTimer = freezeTimer;
-    fill(color(155, 255, 0));    
+    fill(color(155, 255, 0));   
+    if (mode != 0){
     text(currTimer / 1000, 950, 200);
+    }
   }else{
  background(standard);
  fill(color(0, 155, 155));
- if(lives > 0){
+ if(lives > 0 && mode != 0){
     text(currTimer / 1000, 950, 200);
  }
   }
@@ -177,7 +214,7 @@ int freezeTimer;
       Fruits.remove(f);
     }else if(f.isDead()){
       Fruits.remove(f);
-      if (!f.cut && f.whatFruit != 0 && debugMode != 2){
+      if (!f.cut && f.whatFruit != 0 && debugMode != 2 && mode != 1){
         lives--;
        }
     }
@@ -190,6 +227,8 @@ int freezeTimer;
      text(score, 80, 100);
   
   if (lives == 0){
+   
+   
         while(Fruits.size() >0){
           Fruits.remove(0);
         }
@@ -215,12 +254,19 @@ int freezeTimer;
   if(lives < 0){
     lives = 0;
   }
-  if (lives > 0){
+  if (mode != 0){
+    fill(color(0, 0, 0));
+      textSize(10) ;
+        text(time, 10, 10);
+      textSize(100) ;
+  
+  }
+  if (lives > 0 ){
       fill(color(0, 0, 0));
       textSize(10) ;
-      text(time, 10, 10);
+      
       textSize(100) ;
-     
+     if (mode != 1){
     if(lives == 3){
         fill(color(0, 50, 200));
         
@@ -246,6 +292,7 @@ int freezeTimer;
        fill(color(0, 0, 0));
 
     }
+     }
   
   int spawntime = (int)(Math.random()*30 + 10);
   if(debugMode == 3){
@@ -262,15 +309,16 @@ int freezeTimer;
     Fruit a = new Fruit(spawnwidth, 1000, (int)(Math.random() * 4) - (int)(Math.random() * 4), speedup, 50, 50.0);
      
      
-      
+    
       if (fruityCounter == 6){
         a = new Fruit(spawnwidth, 1000, (int)(Math.random() * 5) - (int)(Math.random() * 5), speedup, 50, 50.0, 0);
      
       }
       
-      if (a.whatFruit == 12){
+      if (a.whatFruit == 12 && mode != 0){
         a = new Freeze(a.position.x, a.position.y, a.velocity.x, a.velocity.y, a.radius, a.mass);
       }
+      
    Fruits.add(a);
     if (fruityCounter == 6){
         fruityCounter = 0;
@@ -282,7 +330,7 @@ int freezeTimer;
   
   
   // IF FROZEN CHANGE BACKGROUND TO A FROZEN BACKGROUND
-  if(freezerTime){
+  if(freezerTime && mode == 1){
   for(int i = 0; i < Veggie.Fruits.size(); i++){
         Fruit f = Veggie.Fruits.get(i);
        

@@ -18,5 +18,10 @@ public class Freeze extends Fruit{
      }
   
   }
+ // public void display(){
+  //    PImage pome = loadImage("freezeBanana.png");
+  //    pome.resize((int)super.radius, 0);
+ //     image(pome, super.position.x, super.position.y);
+//  }
   
 }

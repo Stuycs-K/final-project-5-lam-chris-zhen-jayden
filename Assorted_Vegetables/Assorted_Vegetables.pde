@@ -9,6 +9,9 @@ Game Veggie;
 int freezeCounter = 1000;
 PImage standard, freeze;
 int mode;
+int score; 
+int classic;
+int arcade; 
 
 void setup(){
   font =  createFont("go3v2.ttf", 32);
@@ -22,13 +25,22 @@ void setup(){
   Veggie = new Game();
   waterMelonScore = loadImage("Watermelon.png");
   menu = true;
-
+   if (mode == 0){
+    classic = highScore;
+    
+  }
+  if (mode == 1){
+    arcade = highScore;
+  }
+ highScore = 0;
 }
 
 void draw(){
+  
   //standard = loadImage("Wood2.png");
- 
+  
   if(menu){
+   
    Veggie.displayMenu();
   }else{
     
