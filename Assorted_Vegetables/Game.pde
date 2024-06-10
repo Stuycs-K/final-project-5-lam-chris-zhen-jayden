@@ -101,8 +101,10 @@ int freezeTimer;
   }
   
   public void display(){
+    
     if (mode == 1){
       highScore = arcade;
+      difficulty = 30;
      
     }
     if (mode == 0){
