@@ -1,5 +1,6 @@
 public class Pomegranate extends Fruit{
-private int hits = 0;
+public int hits = 0;
+
   int FloorMass = 500000000;
   public Pomegranate(int x, int y, int xspeed, int yspeed, float radius_, int mass_){
     super(x,  y,  xspeed, yspeed,  radius_,  mass_);
@@ -11,7 +12,7 @@ private int hits = 0;
       image(pome, super.position.x, super.position.y);
       text(hits / 10, super.position.x, super.position.y);
   }
-  
+
   public boolean isDead(){
     if(super.velocity.y > 0 && super.position.y > 1000){
           lives = 0;
@@ -35,9 +36,7 @@ private int hits = 0;
   public void slashed(){
   if (!super.cut && pmouseX > super.position.x - super.radius && pmouseX < super.position.x + super.radius && pmouseY > super.position.y - super.radius && pmouseY < super.position.y + super.radius){
      hits++;
-     if (hits == 1){
-       freezerTime = true;
-     }
+    
   }
   }
 }

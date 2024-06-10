@@ -101,7 +101,9 @@ int freezeTimer;
   }
   
   public void display(){
-    
+    if (currTimer < 0){
+      currTimer = 0;
+    }
     if (mode == 1){
       highScore = arcade;
       difficulty = 30;
@@ -199,6 +201,8 @@ int freezeTimer;
     //  f.displayCombo(death_x, death_y);
       // Make something for bomb explosion
       }
+      
+      
          score += combo;
          deathx = f.position.x;
          deathy = f.position.y;
@@ -320,8 +324,12 @@ int freezeTimer;
      
       }
       
-      if (a.whatFruit == 12 && mode != 0){
+      if (a.whatFruit == 12){
+        if (mode != 0 && currTimer > 10000){
         a = new Freeze(a.position.x, a.position.y, a.velocity.x, a.velocity.y, a.radius, a.mass);
+        }else{
+          a = new Fruit(spawnwidth, 1000, (int)(Math.random() * 4) - (int)(Math.random() * 4), speedup, 50, 50.0, 0);
+        }
       }
       
    Fruits.add(a);
