@@ -8,5 +8,11 @@ Assorted Vegetables will be fruit ninja clones where fruit will be thrown across
 Press play in Processing!!!
 You will start at a menu. Slice whichever fruit corresponds with the gamemode you wish to play. Your mouse cursor is the blade. Move your mouse over the fruits to cut them. At the end of the game you can return to the menu to play again or select the other gamemode. 
 
+##Prototype
 https://docs.google.com/document/d/1DH81i-vyQdIjXO2inFicmnUrmMsunlJZXkWHwLEcCxM/edit?usp=sharing
+
+##Presentation
 https://drive.google.com/file/d/1JzAngQCN8LeKnenPEaX8lpkM4XUerKBJ/view?usp=sharing
+
+##Bugs
+Slicing the freeze banana sometimes leads to either a second increase in time or the time just going straight to zero. If encountered, restart the game.
