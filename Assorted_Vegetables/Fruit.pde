@@ -222,16 +222,16 @@ public void display(){
       }
  if(whatFruit == 12){
      
-      radius = 200;
-      if (mode == 0){
+     
+     
        radius = 80;
-     }
-      lemon = loadImage("Redapple.png");
+     
+      lemon = loadImage("freezeBanana.png");
       lemon.resize((int)radius, 0);
       image(lemon, position.x, position.y);
 }  if(whatFruit == 32){
-      radius = 200;
-      cut_lemon = loadImage("cutRedapple.png");
+      radius = 80;
+      cut_lemon = loadImage("cutBanana.png");
       cut_lemon.resize((int)radius, 0);
       image(cut_lemon, position.x, position.y);
 }

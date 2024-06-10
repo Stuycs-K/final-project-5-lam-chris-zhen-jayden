@@ -167,6 +167,9 @@ int freezeTimer;
     f.display();
     f.applyForce(f.attractTo(Floor));
     f.slashed(); 
+    if (f.whatFruit == 0 && f.isSlashed){
+      Fruits.remove(f);
+    }
     if(f.isSlashed){
       if(!(f.whatFruit == 0)){
         if (combo == 0){
