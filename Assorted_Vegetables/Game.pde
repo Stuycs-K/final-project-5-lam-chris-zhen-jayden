@@ -18,7 +18,7 @@ int fruityCounter;
 float angleRotate = 0.0;
 int beforeTimer;
 int debugMode;
-int currTimer = 60000;
+int currTimer = 60999;
 int freezeTimer;
   public Game(){
     time = 0;

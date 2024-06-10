@@ -35,7 +35,9 @@ private int hits = 0;
   public void slashed(){
   if (!super.cut && pmouseX > super.position.x - super.radius && pmouseX < super.position.x + super.radius && pmouseY > super.position.y - super.radius && pmouseY < super.position.y + super.radius){
      hits++;
-     
+     if (hits == 1){
+       freezerTime = true;
+     }
   }
   }
 }
