@@ -7,3 +7,4 @@ Assorted Vegetables will be fruit ninja clones where fruit will be thrown across
 ## Instructions
 Press play in Processing!!!
 You will start at a menu. Slice whichever fruit corresponds with the gamemode you wish to play. Your mouse cursor is the blade. Move your mouse over the fruits to cut them. At the end of the game you can return to the menu to play again or select the other gamemode. 
+ https://docs.google.com/document/d/1DH81i-vyQdIjXO2inFicmnUrmMsunlJZXkWHwLEcCxM/edit?usp=sharing
